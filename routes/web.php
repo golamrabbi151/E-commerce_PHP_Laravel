@@ -95,7 +95,7 @@ Route::get('search','UserProductController@search');
 Route::get('/product/title/{title}','UserProductController@getProductByTitle');
 Route::get('/product/category/{id}','UserProductController@getProductByCategory');
 
-
+Route::get('/product/discount_products/all','UserProductController@discount_products');
 
 // cart product cart product cart product
 

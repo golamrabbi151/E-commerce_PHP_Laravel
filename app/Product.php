@@ -11,7 +11,7 @@ class Product extends Model
           'type_id',
          'title','price',
          'quantity', 'product_status',
-         'product_quality','description','product_photo'
+         'product_quality','description','product_photo','discount_price'
      ];
 
 

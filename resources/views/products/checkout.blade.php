@@ -1,8 +1,13 @@
-
 @include('layouts.font_header');
 
 @include('include.index')
+<style >
+  .place_order{
+    display: none;
+  /*  float: right;*/
+  }
 
+</style>
 <div >
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0F6CB2;color:#EFFFEF; margin-top:14px;">
             <div class='container'>
@@ -92,30 +97,16 @@
     <div class="container"style="background-color:#FFFFFF;">
 
       <div class="row">
-
-
-
         <div class="col-md-6">
-
-
-
-
-
 {{-- @include('include.index') --}}
-
 <h2>Shepping address </h2>
-
-
-
 <div id="tabs">
   <ul>
     <li><a href="#tabs-1">New Address</a></li>
     <li><a href="#tabs-2">Previous Address</a></li>
-    
   </ul>
   <div id="tabs-1">
     {!! Form::open(['action'=>'CheckoutController@placeOrder','files'=>true,'method'=>'POST']) !!}
-
 <div class="form-group">
 {!! Form::label('name','Name:') !!}
 {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Name', 'required']) !!}
@@ -137,8 +128,8 @@
 {!! Form::textarea('fullAddress',null,['class'=>'form-control','rows'=>'2','placeholder'=>'details of your address', 'required']) !!}
 </div>
 
-<div class="form-group">
-    {!! Form::submit('Place order',['class'=>'btn btn-primary']) !!}
+<div class="form-group" >
+    {!! Form::submit('Place order',['class'=>'btn btn-primary place_order']) !!}
 </div>
 {!! Form::close() !!}
   </div>
@@ -181,8 +172,8 @@
 {!! Form::textarea('fullAddress',$d_address->fullAddress?$d_address->fullAddress:'',['class'=>'form-control','rows'=>'2','placeholder'=>'details of your address', 'required']) !!}
 </div>
 
-<div class="form-group">
-    {!! Form::submit('Place order',['class'=>'btn btn-primary']) !!}
+<div class="form-group" >
+    {!! Form::submit('Place order',['class'=>'btn btn-primary place_order']) !!}
 </div>
 {!! Form::close() !!}
 @php
@@ -200,6 +191,9 @@
 
           
 </div>
+
+
+
 
 {{-- col-md-6 --}}
 
@@ -225,17 +219,9 @@
                 <th scope="col">Quantity</th>
 
                 <th scope="col">Total</th>
-
-
             </tr>
-
-
             </thead>
-
-
             <tbody>
-
-
 @foreach($data as $product)
 
             <tr>
@@ -272,11 +258,7 @@
         </table>
       </div>
 @endif
-
-
-
-
-        <div class="row">
+<div class="row">
          {{--    <div class="col-md-6">
                 <div  class="text-left" style="padding-top:50px;padding-bottom:50px;">
                   <a href="{{ url('checkout') }}">
@@ -294,20 +276,96 @@
         </div>
 
 </div>
-      </div>
+
+<style >
+  .payment_method_img{
+    width: 29%;
+float: left;
+height: 100px;
+
+   
+      }
+  .payment_method_img:hover{
+       border:1px solid gray;
+  }
+
+  .payment_form{
+    display: none;
+  }
+
+</style>
+
+<script>
+$(document).ready(function(){
+  $(".payment_method_img").click(function(){
+    $(".payment_form").show();
+  });
+
+});
+
+
+
+$(document).ready(function(){
+  $("#confirm").click(function(){
+    $(".place_order").show();
+  });
+
+});
+
+
+// $(document).ready(function(){
+//   $("#confirm").click(function(){
+//     $(".place_order").show();
+//   });
+// });
+
+</script>
 
 
 
 
+<div class="row">
+  <div class="col-md-12">
 
-
+    <h2 style="padding-top: 8px; padding-bottom: 8px; ">Select Payment Method</h2>
+    <div style="width: 162%!important;">
+    <div class="payment_method ">
+      <img  class="payment_method_img show_payment_form"  src="{{ asset('image/dbbl.png') }}">
     </div>
+     <div class="payment_method ">
+      <img  class="payment_method_img show_payment_form"  src="{{ asset('image/bkash-logo-copy.png') }}">
     </div>
-
-
+     </div>
+    
+     <div class="payment_form" >
+      <form action="" method="post">
+      <div>
+        <label >account no:</label>
+       <input type="text" name="account_no" placeholder="account no" class="form-control" >
+    </div>
+    <div>
+      <label>Transaction Id:</label>
+       <input type="password" name="pin" placeholder="Transaction Id" class="form-control">
+    </div>
+    <div class="form-check" style="padding-top: 10px; padding-bottom: 20px;">
+        <input class="form-check-input" type="checkbox" value="" id="confirm">
+        <label class="form-check-label" for="confirm">
+         Confirm
+        </label>
+    </div>
+    </form>
+  </div>
+    
 
 </div>
 
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
 
 
 

@@ -381,7 +381,7 @@ left: 100%; margin-top: -37%; height:400px; background-color: #F3F3F3;
     background-color: #FFFFFF;
     padding-right: 14px ;
     padding-left: 14px;
-    padding-top: 15px;
+    padding-top: 8px;
     padding-bottom: 15px;
 
 
@@ -402,6 +402,7 @@ left: 100%; margin-top: -37%; height:400px; background-color: #F3F3F3;
 }
 .hot_deals img{
     padding-top:8px;
+    height: 200px;
     padding-bottom:20px;
 }
 .hot_deals a p{

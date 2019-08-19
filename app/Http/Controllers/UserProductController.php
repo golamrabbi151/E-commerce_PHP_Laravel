@@ -88,6 +88,14 @@ public function getProductByCategory($id){
     return view('products/view_as_category',compact('types','categorys'));
 }
 
+// discount product
+public function discount_products(){
+
+    $discount_product = Product::all()->where('discount_price','>',0);
+    $categorys = Category::all();
+    return view('products/discount_product',compact('discount_product','categorys'));
+}
+
 
 public function search(Request $request){
     // return "not working";

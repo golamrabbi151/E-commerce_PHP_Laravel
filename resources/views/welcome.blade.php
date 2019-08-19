@@ -27,29 +27,18 @@ tr:nth-child(even){background-color: #f2f2f2}
                         <li class="nav-item ">
                             <a class="nav-link" href="{{ url('/') }}">HOME <span class="sr-only">(current)</span></a>
                         </li>
-@if ($categorys)
-         @foreach ($categorys as $category)
-      
-    
-
-
+                @if ($categorys)
+                @foreach ($categorys as $category)
                         <li class="nav-item">
                           <a class="nav-link" href="{{ url('product/category/'.$category->id) }}">{{$category->category_name}}</a>
-
                         </li>
-          @endforeach             
-@endif
-
-                       
+                @endforeach             
+                @endif                    
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
-
-
-
-
 <!--  banner section --><!--  banner section --><!--  banner section -->
 <!--  banner section --><!--  banner section --><!--  banner section -->
 
@@ -185,41 +174,22 @@ tr:nth-child(even){background-color: #f2f2f2}
 
                 </div>
 
+                <div style="padding-top: 8px;">
 
+                    <div class="hot_deals">
+                        <h5>Flash Sale</h5>
+                        <hr>
+                        <img src="{{asset('frontend/img/g1.jpg')}}" class="d-block w-100"  alt="...">
+                        <a href="">Floral Print Buttoned<p> $100.00</p><a>
+                                <button type="button" class="btn cut_btn" ><i  class="fa fa-shopping-cart" aria-hidden="true"> </i> </button> <button type="button" class="btn btn-primary" >Add to cart</button>
 
-
-
-
+                    </div>
+                </div>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
             <!-- Catagory   Catagory  Catagory Catagory Catagory -->
             <!-- Catagory   Catagory  Catagory Catagory Catagory -->
             <!-- Catagory   Catagory  Catagory Catagory Catagory -->
-
-
-
-
-
-
-
-
-
-
-
-
-
             <div class="col-md-9">
                 <div>
                     <!-- slider  -->
@@ -251,15 +221,10 @@ tr:nth-child(even){background-color: #f2f2f2}
                                         <h2>woman <strong style="color: orange;">fashion</strong> </h2>
                                         <p>Lorem Ipsum is simply dummy text of the printing </p>
                                         <button type="button" class="btn succ" >Success</button>
-
-
-
                                     </div>
                                 </div>
 
                             </div>
-
-
                             <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
@@ -268,15 +233,9 @@ tr:nth-child(even){background-color: #f2f2f2}
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
-
-
-
                         </div>
-
                     </div>
-
                 </div>
-
                 <!-- After Slider  -->
                 <div style="padding-bottom: 30px;">
                     <div class="money_free_spetial">
@@ -303,34 +262,16 @@ tr:nth-child(even){background-color: #f2f2f2}
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
-
                     </div>
                 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <!-- New Footware -->
-
+{{-- discount products --}}
+<div style="  padding-bottom: 10px;" >
+<a href="{{ url('/product/discount_products/all') }}"><img class="img-fluid" src="{{ asset('image/discount.jpg') }}"></a> 
+</div>
+           <!-- New Footware -->
                 <div>
                     <div class="hot_deals" >
-
                         <div class="cat_title" >
                             <h3>TOP PRODUCTS</h3><hr>
                         </div>
@@ -546,34 +487,16 @@ tr:nth-child(even){background-color: #f2f2f2}
             <div class="winter_collection" style="padding-bottom: 116px;">
                 
          <h1>Muslim Fashion</h1>
-
-
-
 @if($product)
-
-
       <ul>
     @foreach($product as $prdc)
-
-
-        @if($prdc->type->type_name == 'Muslim Fashion')
-               
-
-          
+        @if($prdc->type->type_name == 'Muslim Fashion')      
                     <li><a href="{{ url('product/title') }}/{{$prdc->title}}">{{$prdc->title}}</a></li>
-   
-
         @endif
     @endforeach
-
          </ul>
 @endif
-
-
-
-
-
-            </div>
+ </div>
 
         </div>
         <div class="col-md-9 prodct_section" >
